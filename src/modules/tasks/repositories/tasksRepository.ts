@@ -65,11 +65,19 @@ class TasksRepository implements ITasksRepository {
   }
 
   async delete(id: string): Promise<void> {
-    throw new Error("Method not implemented.");
+    this.tasks = this.tasks.filter((task) => id !== task.id);
   }
 
   async update(data: IUpdateTaskDTO): Promise<Task> {
-    throw new Error("Method not implemented.");
+    const taskIndex = this.tasks.findIndex((task) => data.id === task.id);
+
+    Object.assign(this.tasks[taskIndex], data);
+
+    return this.tasks[taskIndex];
+  }
+
+  async findById(id: string): Promise<Task> {
+    return this.tasks.find((task) => id === task.id);
   }
 }
 

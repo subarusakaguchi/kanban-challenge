@@ -10,6 +10,7 @@ interface IUpdateTaskDTO {
   id: string;
   title?: string;
   content?: string;
+  status?: TaskPossibleStatus;
 }
 
 interface ITasksRepository {
@@ -17,6 +18,7 @@ interface ITasksRepository {
   create(data: ICreateTaskDTO): Promise<Task>;
   delete(id: string): Promise<void>;
   update(data: IUpdateTaskDTO): Promise<Task>;
+  findById(id: string): Promise<Task>;
 }
 
 export { ITasksRepository, ICreateTaskDTO, IUpdateTaskDTO };
