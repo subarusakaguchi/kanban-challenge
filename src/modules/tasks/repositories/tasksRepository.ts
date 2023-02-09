@@ -71,6 +71,12 @@ class TasksRepository implements ITasksRepository {
   async update(data: IUpdateTaskDTO): Promise<Task> {
     const taskIndex = this.tasks.findIndex((task) => data.id === task.id);
 
+    Object.keys(data).forEach((key) => {
+      if (key !== "id") {
+        data[key] = data[key] || this.tasks[taskIndex][key];
+      }
+    });
+
     Object.assign(this.tasks[taskIndex], data);
 
     return this.tasks[taskIndex];
