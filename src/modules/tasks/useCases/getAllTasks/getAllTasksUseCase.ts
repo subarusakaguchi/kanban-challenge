@@ -1,6 +1,6 @@
-import { Task } from "../../entities/task";
 import { ITasksRepository } from "../../repositories/ITasksRepository";
 import { inject, injectable } from "tsyringe";
+import { Task } from "@modules/tasks/entities/Task";
 
 @injectable()
 class GetAllTasksUseCase {

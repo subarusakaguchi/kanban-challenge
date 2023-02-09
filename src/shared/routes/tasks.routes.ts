@@ -1,8 +1,8 @@
+import { CreateTaskController } from "@modules/tasks/useCases/createTask/createTaskController";
+import { DeleteTaskController } from "@modules/tasks/useCases/deleteTask/deleteTaskController";
+import { GetAllTasksController } from "@modules/tasks/useCases/getAllTasks/getAllTasksController";
+import { UpdateTaskController } from "@modules/tasks/useCases/updateTask/updatedTaskController";
 import { Router } from "express";
-import { DeleteTaskController } from "../modules/tasks/useCases/deleteTask/deleteTaskController";
-import { CreateTaskController } from "../modules/tasks/useCases/createTask/createTaskController";
-import { GetAllTasksController } from "../modules/tasks/useCases/getAllTasks/getAllTasksController";
-import { UpdateTaskController } from "../modules/tasks/useCases/updateTask/updatedTaskController";
 
 const tasksRoutes = Router();
 

@@ -3,7 +3,7 @@ import {
   IUpdateTaskDTO,
 } from "../../repositories/ITasksRepository";
 import { inject, injectable } from "tsyringe";
-import { Task } from "../../entities/task";
+import { Task } from "@modules/tasks/entities/Task";
 
 @injectable()
 class UpdateTaskUseCase {

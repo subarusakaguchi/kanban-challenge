@@ -1,16 +1,17 @@
-import { Task, TaskPossibleStatus } from "../entities/task";
+import { TaskStatus } from "@prisma/client";
+import { Task } from "../entities/Task";
 
 interface ICreateTaskDTO {
   title: string;
   content?: string;
-  status?: TaskPossibleStatus;
+  status?: TaskStatus;
 }
 
 interface IUpdateTaskDTO {
   id: string;
   title?: string;
   content?: string;
-  status?: TaskPossibleStatus;
+  status?: TaskStatus;
 }
 
 interface ITasksRepository {

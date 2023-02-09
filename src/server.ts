@@ -1,8 +1,8 @@
 import "reflect-metadata";
 import express from "express";
 
-import "./injections";
-import { routes } from "./routes";
+import "./shared/injections";
+import { routes } from "./shared/routes";
 
 const PORT = process.env.PORT || 3333;
 

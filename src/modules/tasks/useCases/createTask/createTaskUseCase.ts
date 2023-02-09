@@ -3,7 +3,8 @@ import {
   ITasksRepository,
 } from "../../repositories/ITasksRepository";
 import { inject, injectable } from "tsyringe";
-import { Task } from "../../../tasks/entities/task";
+import { Task } from "@modules/tasks/entities/Task";
+import { TaskStatus } from "@prisma/client";
 
 @injectable()
 class CreateTaskUseCase {
@@ -13,7 +14,7 @@ class CreateTaskUseCase {
   ) {}
 
   async execute(data: ICreateTaskDTO): Promise<Task> {
-    data.status = data.status || "Pending";
+    data.status = data.status || ("Pending" as TaskStatus);
 
     const newTask = this.tasksRepository.create(data);
 

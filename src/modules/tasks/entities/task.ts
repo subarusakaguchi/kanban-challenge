@@ -1,19 +1,11 @@
-import { randomUUID } from "crypto";
+import { Prisma, TaskStatus } from "@prisma/client";
 
-type TaskPossibleStatus = "Pending" | "Doing" | "Review" | "Done";
-
-class Task {
-  id: string;
-  status: TaskPossibleStatus;
+class Task implements Prisma.TaskUncheckedCreateInput {
+  id?: string;
+  status: TaskStatus;
   title: string;
-  content?: string;
-  createdAt: number;
-
-  constructor() {
-    if (!this.id) {
-      this.id = randomUUID();
-    }
-  }
+  content: string;
+  createdAt?: string | Date;
 }
 
-export { Task, TaskPossibleStatus };
+export { Task };
