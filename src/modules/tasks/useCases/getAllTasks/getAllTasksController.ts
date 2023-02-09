@@ -2,7 +2,7 @@ import { Request, Response } from "express";
 import { container } from "tsyringe";
 import { GetAllTasksUseCase } from "./getAllTasksUseCase";
 
-class GetAllTasksContoller {
+class GetAllTasksController {
   async handle(req: Request, res: Response): Promise<Response> {
     const getAllTasksUseCase = container.resolve(GetAllTasksUseCase);
 
@@ -12,4 +12,4 @@ class GetAllTasksContoller {
   }
 }
 
-export { GetAllTasksContoller };
+export { GetAllTasksController };

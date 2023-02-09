@@ -13,6 +13,8 @@ class CreateTaskUseCase {
   ) {}
 
   async execute(data: ICreateTaskDTO): Promise<Task> {
+    data.status = data.status || "Pending";
+
     const newTask = this.tasksRepository.create(data);
 
     return newTask;

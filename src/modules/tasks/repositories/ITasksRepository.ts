@@ -1,8 +1,9 @@
-import { Task } from "../entities/task";
+import { Task, TaskPossibleStatus } from "../entities/task";
 
 interface ICreateTaskDTO {
   title: string;
   content?: string;
+  status?: TaskPossibleStatus;
 }
 
 interface IUpdateTaskDTO {

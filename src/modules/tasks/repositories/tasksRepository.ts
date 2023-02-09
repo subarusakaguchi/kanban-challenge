@@ -20,7 +20,7 @@ class TasksRepository implements ITasksRepository {
           createdAt: new Date().getTime(),
         },
         {
-          id: "18087dcc-7a8d-4238-8f1b-7062e7ff2208",
+          id: "76c28074-3aa4-40bc-ae68-595c1180945d",
           status: "Pending",
           title: "Título 2",
           content:
@@ -28,7 +28,7 @@ class TasksRepository implements ITasksRepository {
           createdAt: new Date().getTime(),
         },
         {
-          id: "18087dcc-7a8d-4238-8f1b-7062e7ff2208",
+          id: "3c2cef4b-fe58-4f12-885c-05be7ad3c2a5",
           status: "Review",
           title: "Título 3",
           content:
@@ -36,7 +36,7 @@ class TasksRepository implements ITasksRepository {
           createdAt: new Date().getTime(),
         },
         {
-          id: "18087dcc-7a8d-4238-8f1b-7062e7ff2208",
+          id: "0cbdba0d-94b5-434e-82c3-4a37d4745472",
           status: "Doing",
           title: "Título 4",
           content:
@@ -54,7 +54,10 @@ class TasksRepository implements ITasksRepository {
   async create(data: ICreateTaskDTO): Promise<Task> {
     const newTask = new Task();
 
-    Object.assign(newTask, data);
+    Object.assign(newTask, {
+      ...data,
+      createdAt: new Date().getTime(),
+    });
 
     this.tasks.push(newTask);
 
