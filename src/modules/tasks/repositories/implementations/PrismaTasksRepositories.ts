@@ -28,6 +28,8 @@ class PrismaTasksRepository implements ITasksRepository {
     });
   }
   async update(id: string, data: IUpdateTaskDTO): Promise<Task> {
+    data.updatedAt = new Date();
+
     const updatedTask = await client.task.update({
       where: {
         id,
