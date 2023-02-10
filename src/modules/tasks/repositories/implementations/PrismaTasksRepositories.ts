@@ -13,17 +13,38 @@ class PrismaTasksRepository implements ITasksRepository {
 
     return allTasks;
   }
-  create(data: ICreateTaskDTO): Promise<Task> {
-    throw new Error("Method not implemented.");
+  async create(data: ICreateTaskDTO): Promise<Task> {
+    const newTask = await client.task.create({
+      data,
+    });
+
+    return newTask;
   }
-  delete(id: string): Promise<void> {
-    throw new Error("Method not implemented.");
+  async delete(id: string): Promise<void> {
+    await client.task.delete({
+      where: {
+        id,
+      },
+    });
   }
-  update(data: IUpdateTaskDTO): Promise<Task> {
-    throw new Error("Method not implemented.");
+  async update(id: string, data: IUpdateTaskDTO): Promise<Task> {
+    const updatedTask = await client.task.update({
+      where: {
+        id,
+      },
+      data,
+    });
+
+    return updatedTask;
   }
-  findById(id: string): Promise<Task> {
-    throw new Error("Method not implemented.");
+  async findById(id: string): Promise<Task> {
+    const task = await client.task.findFirst({
+      where: {
+        id,
+      },
+    });
+
+    return task;
   }
 }
 

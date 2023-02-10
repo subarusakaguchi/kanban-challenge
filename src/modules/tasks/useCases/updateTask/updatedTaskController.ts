@@ -10,7 +10,7 @@ class UpdateTaskController {
     const updateTaskUseCase = container.resolve(UpdateTaskUseCase);
 
     try {
-      const updatedTask = await updateTaskUseCase.execute({
+      const updatedTask = await updateTaskUseCase.execute(id, {
         id,
         title,
         content,
