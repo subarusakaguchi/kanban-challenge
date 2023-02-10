@@ -13,7 +13,7 @@ class DeleteTaskController {
 
       return res.json({ message: "Deleted" });
     } catch (err) {
-      console.log(err);
+      return res.json(err);
     }
   }
 }

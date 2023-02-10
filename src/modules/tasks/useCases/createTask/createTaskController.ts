@@ -8,9 +8,17 @@ class CreateTaskController {
 
     const createTaskUseCase = container.resolve(CreateTaskUseCase);
 
-    const newTask = await createTaskUseCase.execute({ title, content, status });
+    try {
+      const newTask = await createTaskUseCase.execute({
+        title,
+        content,
+        status,
+      });
 
-    return res.status(200).json(newTask);
+      return res.status(200).json(newTask);
+    } catch (err) {
+      return res.json(err);
+    }
   }
 }
 

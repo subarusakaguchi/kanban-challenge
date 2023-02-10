@@ -19,7 +19,7 @@ class UpdateTaskController {
 
       return res.json(updatedTask);
     } catch (err) {
-      console.log(err);
+      return res.json(err);
     }
   }
 }
