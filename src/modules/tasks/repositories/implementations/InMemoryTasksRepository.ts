@@ -1,4 +1,5 @@
 import { Task } from "@modules/tasks/entities/Task";
+import { randomUUID } from "crypto";
 import {
   ICreateTaskDTO,
   ITasksRepository,
@@ -21,9 +22,12 @@ class InMemoryTasksRepository implements ITasksRepository {
   async create(data: ICreateTaskDTO): Promise<Task> {
     const newTask = new Task();
 
+    data.id = randomUUID();
+
     Object.assign(newTask, {
       ...data,
-      createdAt: new Date().getTime(),
+      createdAt: new Date(),
+      updatedAt: new Date(),
     });
 
     this.tasks.push(newTask);
@@ -43,6 +47,8 @@ class InMemoryTasksRepository implements ITasksRepository {
         data[key] = data[key] || this.tasks[taskIndex][key];
       }
     });
+
+    data.updatedAt = new Date();
 
     Object.assign(this.tasks[taskIndex], data);
 
