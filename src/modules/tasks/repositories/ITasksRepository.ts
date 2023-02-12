@@ -3,7 +3,9 @@ import { Task } from "../entities/Task";
 
 interface ICreateTaskDTO extends Prisma.TaskUncheckedCreateInput {}
 
-interface IUpdateTaskDTO extends Prisma.TaskUncheckedUpdateInput {}
+interface IUpdateTaskDTO extends Prisma.TaskUncheckedUpdateInput {
+  status?: TaskStatus | null;
+}
 
 interface ITasksRepository {
   listAll(): Promise<Task[]>;

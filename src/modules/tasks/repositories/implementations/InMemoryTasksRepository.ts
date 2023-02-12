@@ -40,7 +40,7 @@ class InMemoryTasksRepository implements ITasksRepository {
   }
 
   async update(id: string, data: IUpdateTaskDTO): Promise<Task> {
-    const taskIndex = this.tasks.findIndex((task) => data.id === task.id);
+    const taskIndex = this.tasks.findIndex((task) => id === task.id);
 
     Object.keys(data).forEach((key) => {
       if (key !== "id") {

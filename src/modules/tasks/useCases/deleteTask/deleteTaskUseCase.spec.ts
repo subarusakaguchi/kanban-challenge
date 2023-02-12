@@ -35,8 +35,6 @@ describe("Delete task", () => {
 
     const taskToVerify = await inMemoryTasksRepository.listAll();
 
-    console.log(taskToVerify);
-
     expect(taskToVerify[0].content).toEqual(referenceTask.content);
   });
 
