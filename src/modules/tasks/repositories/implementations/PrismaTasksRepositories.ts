@@ -4,8 +4,8 @@ import {
   IUpdateTaskDTO,
 } from "../ITasksRepository";
 
-import { client } from "../../../../shared/prisma/client";
 import { Task } from "@modules/tasks/entities/Task";
+import { client } from "../../../../../prisma";
 
 class PrismaTasksRepository implements ITasksRepository {
   async listAll(): Promise<Task[]> {

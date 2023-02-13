@@ -6,7 +6,7 @@ import "./shared/injections";
 import { routes } from "./shared/routes";
 import { AppError } from "@shared/errors/AppError";
 
-const PORT = process.env.PORT || 3333;
+import "dotenv/config";
 
 const app = express();
 
@@ -25,4 +25,4 @@ app.use((err: Error, req: Request, res: Response, next: NextFunction) => {
   });
 });
 
-app.listen(PORT, () => console.log(`Server is running on port: ${PORT}`));
+export { app };

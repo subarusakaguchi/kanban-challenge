@@ -15,7 +15,7 @@ class CreateTaskController {
         status,
       });
 
-      return res.status(200).json(newTask);
+      return res.status(201).json(newTask);
     } catch (err) {
       return res.json(err);
     }
